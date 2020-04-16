@@ -4,11 +4,22 @@
     angular.module("ShoppingListCheckOff", [])
     .controller("ToBuyController", ToBuyController)
     .controller("AlreadyBoughtController", AlreadyBoughtController)
-    .service("ShoppingListCheckOffService", ShoppingListCheckOffService);
+    .service("ShoppingListCheckOffService", ShoppingListCheckOffService)
+    .directive("customDirective", CustomDirective);
+
+    function CustomDirective() {
+        return {
+            scope : {
+                prop: "@"
+            },
+            template: "<input ng-model='{{prop}}'>"
+        };
+    }
 
     ToBuyController.$inject = ['ShoppingListCheckOffService'];
     function ToBuyController(ShoppingListCheckOffService) {
         this.items = ShoppingListCheckOffService.getToBuyItems();
+        this.title = "title";
 
         this.buy = function(itemIndex) {
             ShoppingListCheckOffService.buy(itemIndex);
