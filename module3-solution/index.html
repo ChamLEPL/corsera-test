@@ -13,15 +13,14 @@
 <body>
     <div class="container">
         <h1>Narrow Down Your Chinese Menu Choice</h1>
-        <div ng-controller="NarrowItDownController as narrowIt">
+        <div ng-controller="NarrowItDownController as nidc">
             <div class="form-group">
-                <input type="text" placeholder="search term" class="form-control" ng-model="narrowIt.search">
+                <input type="text" placeholder="search term" class="form-control" ng-model="nidc.search">
             </div>
             <div class="form-group narrow-button">
-                <button class="btn btn-primary" ng-click="narrowIt.narrowItDown();">Narrow It Down For Me!</button>
+                <button class="btn btn-primary" ng-click="nidc.narrowItDown();">Narrow It Down For Me!</button>
             </div>
-            <div class="clearfix"></div>
-            <found-items items="narrowIt.found" on-remove="narrowIt.removeItem(i)"></found-items>
+            <found-items found-items="nidc.found" on-remove="nidc.removeItem(index)"></found-items>
         </div>
     </div>
 
