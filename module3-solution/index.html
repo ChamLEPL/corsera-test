@@ -11,9 +11,9 @@
 </head>
 
 <body>
-    <div class="container">
+    <div class="container" ng-controller="NarrowItDownController as nidc">
         <h1>Narrow Down Your Chinese Menu Choice</h1>
-        <div ng-controller="NarrowItDownController as nidc">
+        <div>
             <div class="form-group">
                 <input type="text" placeholder="search term" class="form-control" ng-model="nidc.search">
             </div>
@@ -23,7 +23,5 @@
             <found-items found-items="nidc.found" on-remove="nidc.removeItem(index)"></found-items>
         </div>
     </div>
-
 </body>
-
 </html>

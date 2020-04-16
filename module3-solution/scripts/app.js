@@ -32,10 +32,12 @@
 
     NarrowItDownController.$inject = ['MenuSearchService'];
     function NarrowItDownController(MenuSearchService) {
+        var narrowItDownController = this;
         this.narrowItDown = function() {
             var promise = MenuSearchService.getMatchedMenuItems(this.search);
+            console.log(promise);
             promise.then(function(result) {
-                this.found = result;
+                narrowItDownController.found = result;
             }).catch(function(e) {
                 console.log(e.message);
             });
