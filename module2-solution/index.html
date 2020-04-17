@@ -32,8 +32,7 @@
 
     <!-- To Buy List -->
     <div class="col-md-6" ng-controller="ToBuyController as tbc">
-     <h2>To Buy: {{tbc.title}}</h2>
-     <input ng-model='tbc.title'>
+      <h2>To Buy:</h2>
      <ul ng-repeat="item in tbc.items">
        <li>
          Buy {{item.quantity}} {{item.name}}
@@ -44,7 +43,6 @@
         </li>
      </ul>
      <div class="emptyMessage" ng-if="!tbc.items.length">Everything is bought!</div>
-     <custom-directive prop="tbc.title"></custom-directive>
     </div>
 
     <!-- Already Bought List -->
@@ -53,7 +51,7 @@
      <ul ng-repeat="item in abc.items">
        <li>Bought {{item.quantity}} {{item.name}}</li>
      </ul>
-     <div class="emptyMessage" ng-if="tbc.items.length">Nothing bought yet.</div>
+     <div class="emptyMessage" ng-if="!abc.items.length">Nothing bought yet.</div>
     </div>
   </div>
 </div>
